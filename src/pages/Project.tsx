@@ -1,7 +1,7 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import { getProjectById } from "@/data/projects";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Zap, Settings, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Project = () => {
@@ -55,7 +55,7 @@ const Project = () => {
             <p className="text-xl text-muted-foreground mb-8">{project.subtitle}</p>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-4 border-t border-b border-border py-6">
+            <div className="flex flex-wrap items-center gap-4 border-t border-b border-border py-6">
               <Button asChild className="rounded-full px-8">
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
@@ -81,6 +81,19 @@ const Project = () => {
             <p className="text-lg leading-relaxed text-muted-foreground">{project.description}</p>
           </div>
 
+          {/* API Info */}
+          {project.apiInfo && (
+            <div className="mb-12 rounded-2xl bg-accent/10 border border-accent/20 p-6 md:p-8 animate-slide-up stagger-1">
+              <div className="flex items-center gap-3 mb-3">
+                <Zap className="w-5 h-5 text-accent" />
+                <h3 className="text-lg font-bold">API Integration</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">{project.apiInfo.provider}</strong> — {project.apiInfo.description}
+              </p>
+            </div>
+          )}
+
           {/* Technologies */}
           <div className="mb-12 animate-slide-up stagger-2">
             <h2 className="text-2xl font-bold mb-6">Technologies Used</h2>
@@ -96,18 +109,57 @@ const Project = () => {
             </div>
           </div>
 
-          {/* Features */}
+          {/* Core Features */}
           <div className="mb-12 rounded-2xl bg-card p-8 md:p-12 animate-slide-up stagger-3">
-            <h2 className="text-2xl font-bold mb-6">Core Features</h2>
+            <div className="flex items-center gap-3 mb-6">
+              <Star className="w-5 h-5 text-accent" />
+              <h2 className="text-2xl font-bold">Core Features (MVP)</h2>
+            </div>
             <ul className="space-y-3">
               {project.features.map((feature, i) => (
                 <li key={i} className="flex items-start text-muted-foreground">
-                  <span className="mr-3 mt-1 text-accent">•</span>
+                  <span className="mr-3 mt-1 text-accent">✦</span>
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
+
+          {/* Additional Features */}
+          {project.additionalFeatures && project.additionalFeatures.length > 0 && (
+            <div className="mb-12 rounded-2xl bg-card p-8 md:p-12 animate-slide-up stagger-3">
+              <div className="flex items-center gap-3 mb-6">
+                <Zap className="w-5 h-5 text-accent" />
+                <h2 className="text-2xl font-bold">Additional Features</h2>
+              </div>
+              <ul className="space-y-3">
+                {project.additionalFeatures.map((feature, i) => (
+                  <li key={i} className="flex items-start text-muted-foreground">
+                    <span className="mr-3 mt-1 text-accent">🚀</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Technical Requirements */}
+          {project.technicalRequirements && project.technicalRequirements.length > 0 && (
+            <div className="mb-12 animate-slide-up stagger-3">
+              <div className="flex items-center gap-3 mb-6">
+                <Settings className="w-5 h-5 text-accent" />
+                <h2 className="text-2xl font-bold">Technical Requirements</h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-3">
+                {project.technicalRequirements.map((req, i) => (
+                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-muted">
+                    <span className="text-accent mt-0.5">⚙️</span>
+                    <span className="text-sm font-medium">{req}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Highlights */}
           <div className="mb-16 animate-slide-up stagger-4">
