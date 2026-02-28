@@ -127,7 +127,7 @@ export const projects: Project[] = [
     technologies: ["React 18", "Redux Toolkit", "redux-persist", "React Router", "react-hook-form", "Yup", "Chart.js", "Axios", "Vite"],
     role: "Transaction CRUD & Modals",
     githubUrl: "https://github.com/kutluhangil",
-    liveDemoUrl: "https://kutluhangil.github.io",
+    liveDemoUrl: "https://money-guard-app-eight.vercel.app",
     image: moneyguardCover,
     teamSize: 5,
     category: "Team Project",
