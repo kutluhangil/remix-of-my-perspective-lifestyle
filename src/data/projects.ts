@@ -1,5 +1,11 @@
 import cinemaniaCover from "@/assets/cinemania.png";
 import focusframeCover from "@/assets/focusframe.png";
+import moneyguardCover from "@/assets/moneyguard-desktop2.png";
+import moneyguardDesktop1 from "@/assets/moneyguard-desktop1.png";
+import moneyguardDesktop3 from "@/assets/moneyguard-desktop3.png";
+import moneyguardMobile1 from "@/assets/moneyguard-mobile1.png";
+import moneyguardTablet1 from "@/assets/moneyguard-tablet1.png";
+import moneyguardTablet2 from "@/assets/moneyguard-tablet2.png";
 
 export interface Project {
   id: string;
@@ -18,6 +24,7 @@ export interface Project {
   technicalRequirements?: string[];
   highlights: string[];
   apiInfo?: { provider: string; description: string };
+  screenshots?: { label: string; images: string[] }[];
 }
 
 export const projects: Project[] = [
@@ -109,6 +116,67 @@ export const projects: Project[] = [
       "SVG sprite icons throughout",
       "Retina-ready optimized images",
       "Collaborative team using GitHub branches, PRs, and Trello",
+    ],
+  },
+  {
+    id: "moneyguard",
+    title: "Money Guard",
+    subtitle: "Personal Finance Management App",
+    description:
+      "A modern, responsive expense tracking application built with React & Redux. Money Guard allows users to securely register, log in, manage income and expense transactions, track total balance in real time, analyze statistics via Chart.js, and monitor currency exchange rates via Monobank API.",
+    technologies: ["React 18", "Redux Toolkit", "redux-persist", "React Router", "react-hook-form", "Yup", "Chart.js", "Axios", "Vite"],
+    role: "Transaction CRUD & Modals",
+    githubUrl: "https://github.com/kutluhangil",
+    liveDemoUrl: "https://kutluhangil.github.io",
+    image: moneyguardCover,
+    teamSize: 5,
+    category: "Team Project",
+    apiInfo: {
+      provider: "Monobank API",
+      description: "Real-time currency exchange rates for USD and EUR.",
+    },
+    features: [
+      "Secure Authentication (Register / Login / Logout)",
+      "JWT token persistence via redux-persist",
+      "Transaction CRUD (Create / Read / Update / Delete)",
+      "Responsive Transactions Table & Mobile Card Layout",
+      "Floating '+' Add Transaction Button",
+      "Modal-based Add & Edit Forms",
+      "react-hook-form + Yup validation",
+      "react-datepicker integration",
+      "Automatic balance synchronization",
+      "Statistics Dashboard (Chart.js)",
+      "Currency integration (Monobank API)",
+      "Toast-based error handling",
+    ],
+    technicalRequirements: [
+      "Redux Toolkit for global state",
+      "redux-persist for token storage",
+      "React Router for private/public routing",
+      "Async Thunks for backend communication",
+      "Mobile-first responsive CSS (Grid & Flexbox)",
+      "Component-based modular structure",
+      "Clean separation of UI and business logic",
+    ],
+    highlights: [
+      "Built with React 18 & Redux Toolkit",
+      "Mobile-First approach with responsive table/card layouts",
+      "Real-time balance tracking & statistics dashboard",
+      "Collaborative team of 5 developers with parallel workflow",
+    ],
+    screenshots: [
+      {
+        label: "Desktop",
+        images: [moneyguardDesktop1, moneyguardCover, moneyguardDesktop3],
+      },
+      {
+        label: "Tablet",
+        images: [moneyguardTablet1, moneyguardTablet2],
+      },
+      {
+        label: "Mobile",
+        images: [moneyguardMobile1],
+      },
     ],
   },
 ];

@@ -162,7 +162,7 @@ const Project = () => {
           )}
 
           {/* Highlights */}
-          <div className="mb-16 animate-slide-up stagger-4">
+          <div className="mb-12 animate-slide-up stagger-4">
             <h2 className="text-2xl font-bold mb-6">Highlights</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {project.highlights.map((highlight, i) => (
@@ -172,6 +172,25 @@ const Project = () => {
               ))}
             </div>
           </div>
+
+          {/* Screenshots */}
+          {project.screenshots && project.screenshots.length > 0 && (
+            <div className="mb-16 animate-slide-up stagger-5">
+              <h2 className="text-2xl font-bold mb-8">Screenshots</h2>
+              {project.screenshots.map((group, gi) => (
+                <div key={gi} className="mb-8">
+                  <h3 className="text-lg font-semibold text-muted-foreground mb-4">{group.label}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {group.images.map((img, ii) => (
+                      <div key={ii} className="rounded-xl overflow-hidden border border-border">
+                        <img src={img} alt={`${project.title} ${group.label} ${ii + 1}`} className="w-full h-auto object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </article>
       </main>
     </div>
