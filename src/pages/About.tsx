@@ -55,7 +55,14 @@ const About = () => {
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero */}
-        <div className="mb-16 text-center space-y-6">
+        <div className="mb-16 text-center space-y-8">
+          <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden mx-auto ring-4 ring-border/50 animate-scale-in">
+            <img
+              src={profilePhoto}
+              alt="Kutluhan Gül"
+              className="w-full h-full object-cover grayscale"
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">
             About Me
           </h1>
