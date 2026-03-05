@@ -238,7 +238,6 @@ All colors MUST be HSL.
     animation: lineExpand 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
     transform-origin: left;
   }
-  }
 
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out;
