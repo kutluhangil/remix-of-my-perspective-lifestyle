@@ -1,68 +1,113 @@
-import { Linkedin, Github, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Linkedin, Github, Download, ArrowDown } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative rounded-[2.5rem] overflow-hidden bg-muted my-12 animate-fade-in">
-      <div className="grid md:grid-cols-2 gap-6 md:gap-12 p-6 md:p-12 lg:p-16">
-        {/* Left side - Visual */}
-        <div className="relative aspect-[4/3] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in bg-gradient-to-br from-accent/20 to-muted flex items-center justify-center">
-          <div className="text-center p-8">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-6">
-              <span className="text-5xl md:text-6xl font-bold font-serif">KG</span>
+    <section className="relative my-12 py-16 md:py-24 lg:py-32 animate-fade-in">
+      <div className="max-w-5xl mx-auto">
+        {/* Minimal top line */}
+        <div className="flex items-center gap-4 mb-12 animate-float-up" style={{ animationDelay: '0.1s' }}>
+          <div className="h-px bg-foreground/20 animate-line-expand w-16" style={{ animationDelay: '0.3s' }} />
+          <span className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground">
+            Full Stack Developer
+          </span>
+        </div>
+
+        {/* Main content grid */}
+        <div className="grid md:grid-cols-[1fr,auto] gap-12 md:gap-16 items-end">
+          {/* Left - Typography */}
+          <div className="space-y-8">
+            <h1 className="space-y-2">
+              <span
+                className="block text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight animate-float-up"
+                style={{ animationDelay: '0.2s' }}
+              >
+                Kutluhan
+              </span>
+              <span
+                className="block text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight animate-float-up bg-gradient-to-r from-foreground via-foreground/70 to-foreground bg-clip-text text-transparent animate-shimmer"
+                style={{
+                  animationDelay: '0.35s',
+                  backgroundImage: 'linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--muted-foreground)) 50%, hsl(var(--foreground)) 100%)',
+                  backgroundSize: '200% auto',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Gül
+              </span>
+            </h1>
+
+            <p
+              className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-lg animate-float-up"
+              style={{ animationDelay: '0.5s' }}
+            >
+              Building modern, responsive web applications with clean architecture — transitioning from hospitality to code.
+            </p>
+
+            {/* Action row */}
+            <div
+              className="flex items-center gap-6 pt-4 animate-float-up"
+              style={{ animationDelay: '0.65s' }}
+            >
+              <a
+                href="#projects"
+                className="group flex items-center gap-2 text-sm font-medium tracking-wide uppercase hover:text-accent transition-colors"
+              >
+                View Projects
+                <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+              </a>
+
+              <div className="h-4 w-px bg-border" />
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://www.linkedin.com/in/kutluhangil/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-border hover:border-foreground transition-all flex items-center justify-center hover:scale-110"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://github.com/kutluhangil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-border hover:border-foreground transition-all flex items-center justify-center hover:scale-110"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full border border-border hover:border-foreground transition-all flex items-center justify-center hover:scale-110"
+                  aria-label="Download CV"
+                >
+                  <Download className="w-4 h-4" />
+                </a>
+              </div>
             </div>
-            <p className="text-muted-foreground text-sm font-medium tracking-widest uppercase">Full Stack Developer</p>
+          </div>
+
+          {/* Right - Photo */}
+          <div
+            className="animate-float-up"
+            style={{ animationDelay: '0.4s' }}
+          >
+            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+              <img
+                src={profilePhoto}
+                alt="Kutluhan Gül"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Right side - Content */}
-        <div className="flex flex-col justify-center space-y-6 md:space-y-8">
-          <div className="space-y-4 md:space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-slide-down">
-              Hi, I'm Kutluhan Gül
-            </h1>
-            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl animate-slide-up stagger-1">
-              Full Stack Developer in transition with a background in hospitality and tech support. 
-              Building modern, responsive web applications with clean architecture and scalable solutions.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 pt-4 animate-slide-up stagger-2">
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-4 md:px-10 md:py-6 text-base font-medium transition-all hover:scale-105 w-full sm:w-auto"
-            >
-              <a href="#projects">View Projects</a>
-            </Button>
-
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/in/kutluhangil/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com/kutluhangil"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="Download CV"
-              >
-                <Download className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
+        {/* Bottom decorative line */}
+        <div className="mt-16 animate-float-up" style={{ animationDelay: '0.8s' }}>
+          <div className="h-px bg-gradient-to-r from-border via-foreground/20 to-transparent animate-line-expand" style={{ animationDelay: '1s' }} />
         </div>
       </div>
     </section>
