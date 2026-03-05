@@ -54,40 +54,39 @@ const About = () => {
       <Header />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Hero */}
-        <div className="mb-16 text-center space-y-8">
-          <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden mx-auto ring-4 ring-border/50 animate-scale-in">
-            <img
-              src={profilePhoto}
-              alt="Kutluhan Gül"
-              className="w-full h-full object-cover grayscale"
-            />
+        {/* Hero - Reference layout: text left, circular photo right */}
+        <div className="mb-20 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* Left - Content */}
+          <div className="space-y-6 order-2 md:order-1">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">
+              About me
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed animate-slide-up stagger-1">
+              Full Stack Developer in transition with 2.5+ years of experience as a Senior Selling Partner Support 
+              Associate at Amazon. In 2024, I made a deliberate career shift into software development and began an 
+              intensive Full Stack Development program. Backed by 8+ years of international professional experience, 
+              I bring strong analytical thinking, problem-solving skills, and a disciplined work ethic.
+            </p>
+            <div className="animate-slide-up stagger-2">
+              <Button className="rounded-full px-8">
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </Button>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">
-            About Me
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto animate-slide-up stagger-1">
-            Full Stack Developer in transition with 8+ years of international professional experience, 
-            now building modern web applications with clean architecture and scalable solutions.
-          </p>
-        </div>
 
-        {/* Professional Summary */}
-        <section className="mb-16 rounded-2xl bg-card p-8 md:p-12 animate-slide-up stagger-2">
-          <h2 className="text-3xl font-bold mb-6">Professional Summary</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Full Stack Developer in transition with 2.5+ years of experience as a Senior Selling Partner Support 
-            Associate at Amazon, where I worked in a structured, high-performance environment handling complex cases, 
-            policy-based evaluations, and cross-functional collaboration. In 2024, I made a deliberate career shift 
-            into software development and began an intensive Full Stack Development program to build strong technical 
-            foundations in modern web technologies. Since then, I have been actively developing personal and team-based 
-            projects using HTML, CSS, JavaScript, React, and Node.js, focusing on responsive design, clean architecture, 
-            and scalable solutions. Backed by 8+ years of international professional experience, including hospitality 
-            and supervisory roles in the United States, I bring strong analytical thinking, problem-solving skills, 
-            adaptability, and a disciplined work ethic. I am now focused on growing as a developer and contributing to 
-            impactful, user-centered digital products.
-          </p>
-        </section>
+          {/* Right - Photo with decorative circle */}
+          <div className="relative flex justify-center md:justify-end order-1 md:order-2 animate-scale-in">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] md:w-[90%] aspect-square rounded-full bg-accent/15" />
+            <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden ring-4 ring-background shadow-xl">
+              <img
+                src={profilePhoto}
+                alt="Kutluhan Gül"
+                className="w-full h-full object-cover grayscale"
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Skills */}
         <section className="mb-16">
