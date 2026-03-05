@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { Download, Briefcase, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const skills = [
   "HTML/CSS", "JavaScript", "React", "TypeScript", "Node.js",
